@@ -18,13 +18,13 @@ app.get('/manar', (_req, res) => {
   });
 });
 
-app.post('/', (_req, res) => {
-  res.send('Checking check...');
-});
-
-app.post('/mohamed', (_req, res) => {
-  res.send('Checking check... hmmmmmmmmm...');
-});
+// app.post('/', (_req, res) => {
+//   res.send('Checking check...');
+// });
+//
+// app.post('/mohamed', (_req, res) => {
+//   res.send('Checking check... hmmmmmmmmm...');
+// });
 
 const port = 3000;
 app.listen(port, () => {
