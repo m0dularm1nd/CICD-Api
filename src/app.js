@@ -5,7 +5,7 @@ const app = express();
 app.get('/', (_req, res) => {
   res.status(200).json({
     email: 'Hello from the other side!',
-    password: 'HEREWEGO',
+    password: 'you know what it is',
   });
 });
 
