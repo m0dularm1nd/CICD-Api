@@ -6,7 +6,7 @@ app.get('/', (_req, res) => {
   res.status(200).json({
     message: 'Hello from the other side 👽',
     user: 'Manar 👑',
-    email: 'hena@manar.com ☯️',
+    email: 'hena@manar.com',
     mshpassword: '☠️',
   });
 });
