@@ -8,7 +8,6 @@ app.get('/', (_req, res) => {
     user: 'Manar 👑',
     email: 'hena@manar.com',
     mshpassword: '☠️',
-    cloud: '⛈️',
   });
 });
 
