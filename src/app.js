@@ -4,17 +4,18 @@ const app = express();
 
 app.get('/', (_req, res) => {
   res.status(200).json({
-    message: 'Hello from the other side 👽',
-    user: 'Username 👑',
-    email: 'hena@manar.com',
-    password: 'pass',
+    message: 'Hello from the other side',
+    user: 'Username',
+    email: 'here@V3il.com',
+    password: 'notpassword',
+    image: "🌟"
   });
 });
 
 app.get('/anotherendpoint', (_req, res) => {
   res.status(200).json({
-    email: 'hena@here.com',
-    mshpassword: 'test',
+    email: 'here@v3il.xyz',
+    token: 'test',
   });
 });
 
