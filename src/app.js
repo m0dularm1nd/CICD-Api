@@ -5,17 +5,16 @@ const app = express();
 app.get('/', (_req, res) => {
   res.status(200).json({
     message: 'Hello from the other side 👽',
-    user: 'Manar 👑',
+    user: 'Username 👑',
     email: 'hena@manar.com',
-    mshpassword: '☠️',
-    logcheck: '..........',
+    password: 'pass',
   });
 });
 
-app.get('/manar', (_req, res) => {
+app.get('/anotherendpoint', (_req, res) => {
   res.status(200).json({
-    email: 'hena@manar.com',
-    mshpassword: 'herewego',
+    email: 'hena@here.com',
+    mshpassword: 'test',
   });
 });
 
@@ -23,7 +22,7 @@ app.get('/manar', (_req, res) => {
 //   res.send('Checking check...');
 // });
 //
-// app.post('/mohamed', (_req, res) => {
+// app.post('/postcheck', (_req, res) => {
 //   res.send('Checking check... hmmmmmmmmm...');
 // });
 
