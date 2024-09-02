@@ -8,7 +8,8 @@ app.get('/', (_req, res) => {
     user: 'Username',
     email: 'here@V3il.com',
     password: 'notpassword',
-    image: "🌟"
+    image: "🌟",
+    customImage: "nexus"
   });
 });
 
