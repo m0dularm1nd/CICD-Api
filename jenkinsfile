@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("m0dularm1nd/cicd-api")
+       app = docker.build("nx2.v3il.xyz/m0dularm1nd/cicd-api")
     }
 
     stage('Test image') {

@@ -9,7 +9,8 @@ app.get('/', (_req, res) => {
     email: 'here@V3il.com',
     password: 'notpassword',
     image: "🌟",
-    customImage: "nexus"
+    customImage: "nexus",
+    color: "blue"
   });
 });
 
