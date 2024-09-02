@@ -10,7 +10,7 @@ app.get('/', (_req, res) => {
     password: 'notpassword',
     image: "🌟",
     customImage: "nexus",
-    color: "blue"
+    color: "red"
   });
 });
 
