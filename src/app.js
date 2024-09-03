@@ -5,12 +5,14 @@ const app = express();
 app.get('/', (_req, res) => {
   res.status(200).json({
     message: 'Hello from the other side',
-    user: 'Username',
+    user: 'Express.js Backend server',
+    request: 'json response',
     email: 'here@V3il.com',
     password: 'notpassword',
-    image: "🌟",
     customImage: "nexus",
-    color: "red"
+    color: "sky",
+    shape: "pyramid",
+    image: "🔮"
   });
 });
 
