@@ -15,7 +15,7 @@ app.use((_req, res, next) => {
 
 app.get('/', (_req, res) => {
   res.status(200).json({
-    message: 'Multi CD, Multibranch, vso',
+    message: 'Private Image, Multi CD, Multibranch, VSO',
     user: 'Express.js Backend server',
     request: 'json response',
     email: 'here@V3il.com',
