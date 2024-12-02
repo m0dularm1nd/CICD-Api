@@ -1,0 +1,6 @@
+projectKey=Api-ops
+serverUrl=https://sqube.v3il.xyz
+serverVersion=10.6.0.92116
+dashboardUrl=https://sqube.v3il.xyz/dashboard?id=Api-ops
+ceTaskId=1e876ca6-2b5b-460f-9b25-507c6d427d79
+ceTaskUrl=https://sqube.v3il.xyz/api/ce/task?id=1e876ca6-2b5b-460f-9b25-507c6d427d79
