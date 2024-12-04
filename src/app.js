@@ -21,7 +21,7 @@ app.get('/', (_req, res) => {
     email: 'here@V3il.com',
     password: 'notpassword',
     color: "sky",
-    shape: "pyramid",
+    shape: "cube",
     image: "🔮"
   });
 });
