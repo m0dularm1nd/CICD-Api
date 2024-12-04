@@ -20,7 +20,6 @@ app.get('/', (_req, res) => {
     request: 'json response',
     email: 'here@V3il.com',
     password: 'notpassword',
-    customImage: "nexus",
     color: "sky",
     shape: "pyramid",
     image: "🔮"
