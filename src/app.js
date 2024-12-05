@@ -18,7 +18,7 @@ app.get('/', (_req, res) => {
     message: 'Private Image, Multi CD, VSO',
     user: 'Express.js Backend server',
     request: 'json response',
-    email: 'here@V3il.com',
+    email: 'check@V3il.com',
     password: 'notpassword',
     color: "sky",
     shape: "cube",
