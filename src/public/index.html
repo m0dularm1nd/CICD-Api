@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="bg-gray-100">
+  <head>
+    <title>The Wall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- header -->
+    <header
+      class="flex items-center space-x-4 mb-10 pb-6 border-b border-gray-200"
+    >
+      <img src="images/logo.svg" />
+      <h1 class="text-6xl font-bold text-gray-900">The Wall</h1>
+    </header>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+      <h3 class="text-4xl font-semibold text-indigo-600 mb-2">Welcome!</h3>
+      <p class="text-gray-600 text-xl mb-4">
+        Share your thoughts, ideas, or greetings Leave a message below in the
+        Guest Book.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+      <h2
+        class="text-3xl font-bold mb-6 text-gray-800 pb-4 border-b border-gray-200"
+      >
+        Add New Message
+      </h2>
+      <form
+        id="messageForm"
+        class="space-y-4"
+      >
+        <div>
+          <label
+            for="name"
+            class="block text-sm font-medium text-xl text-gray-700"
+            >Name:</label
+          >
+          <input
+            type="text"
+            id="name"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+          />
+        </div>
+        <div>
+          <label
+            for="message"
+            class="block text-sm font-medium text-gray-700 text-xl"
+            >Message:</label
+          >
+          <input
+            type="text"
+            id="message"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+          />
+        </div>
+        <button
+          type="submit"
+          class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6">
+      <h2
+        class="text-3xl font-bold mb-6 text-gray-800 pb-4 border-b border-gray-200"
+      >
+        Messages
+      </h2>
+      <div
+        id="messages"
+        class="space-y-4 text-xl"
+      ></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

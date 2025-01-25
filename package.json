@@ -1,15 +1,21 @@
 {
-  "name": "Api-ops",
+  "name": "api",
   "version": "1.0.0",
   "description": "for u",
-  "type": "module",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
   },
-  "author": "me",
+  "author": "m0dularm1nd",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.3"
+    "@tailwindcss/vite": "^4.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.3",
+    "pg": "^8.13.1",
+    "tailwindcss": "^4.0.0"
   }
 }
