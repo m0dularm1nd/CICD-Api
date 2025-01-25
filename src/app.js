@@ -16,7 +16,7 @@ app.use((_req, res, next) => {
 app.get('/', (_req, res) => {
   res.status(200).json({
     message: 'Private Image, Multi CD, VSO',
-    user: 'Express.js Backend server',
+    server: 'Express.js Backend server',
     request: 'json response',
     email: 'check@V3il.com',
     password: 'notpassword',
