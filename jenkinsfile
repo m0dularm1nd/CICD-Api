@@ -5,7 +5,7 @@ node {
     }
 
     stage('Build image') {
-       app = docker.build("nx2.v3il.xyz/m0dularm1nd/cicd-api")
+       app = docker.build("nx2.v3il.xyz/m0dularm1nd/wall-api")
     }
 
     stage('Test image') {
@@ -22,7 +22,7 @@ node {
     
     stage('Trigger ManifestUpdate') {
                 echo "triggering updatemanifestjob"
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+                build job: 'wall-api-manifests', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
 }
 
