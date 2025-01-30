@@ -79,14 +79,20 @@ wss.on("connection", (ws) => {
   console.log("New client connected");
 
   ws.on("message", async (data) => {
-    const { name, message } = JSON.parse(data);
+    const message = JSON.parse(data);
+
     try {
-      await pool.query("INSERT INTO wall (name, message) VALUES ($1, $2)", [
-        name,
-        message,
-      ]);
+      if (message.type === "delete") {
+        await pool.query("DELETE FROM wall WHERE id = $1", [message.id]);
+      } else {
+        await pool.query("INSERT INTO wall (name, message) VALUES ($1, $2)", [
+          message.name,
+          message.message,
+        ]);
+      }
+
+      // Send updated messages to all clients
       const result = await pool.query("SELECT * FROM wall ORDER BY id DESC");
-      // Broadcast to all clients
       wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
           client.send(JSON.stringify(result.rows));

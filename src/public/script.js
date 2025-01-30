@@ -5,8 +5,12 @@ ws.onopen = () => {
 };
 
 ws.onmessage = (event) => {
-  const messages = JSON.parse(event.data);
-  displayMessages(messages);
+  const data = JSON.parse(event.data);
+  if (Array.isArray(data)) {
+    displayMessages(data);
+  } else if (data.error) {
+    console.error("Server error:", data.error);
+  }
 };
 
 ws.onerror = (error) => {
@@ -26,17 +30,13 @@ document.getElementById("messageForm").addEventListener("submit", function (e) {
   document.getElementById("message").value = "";
 });
 
-async function deleteMessage(id) {
-  try {
-    const response = await fetch(`/message/${id}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      loadMessages();
-    }
-  } catch (error) {
-    console.error("Error:", error);
-  }
+function deleteMessage(id) {
+  ws.send(
+    JSON.stringify({
+      type: "delete",
+      id: id,
+    }),
+  );
 }
 
 // Function to load messages
