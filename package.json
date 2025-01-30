@@ -15,7 +15,8 @@
     "dotenv": "^16.4.7",
     "express": "^4.18.3",
     "pg": "^8.13.1",
-    "tailwindcss": "^4.0.1"
+    "tailwindcss": "^4.0.1",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.1",
