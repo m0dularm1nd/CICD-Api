@@ -11,13 +11,16 @@ const __dirname = import.meta.dirname;
 
 const app = express();
 const server = createServer(app);
-const wss = new WebSocketServer({ server });
+const wss = new WebSocketServer({ noServer: true }); // Change to noServer: true
+
+// Add connection tracking set
+const clients = new Set();
 
 app.use(
   cors({
     origin: "*",
     methods: ["GET", "POST", "DELETE"],
-    allowedHeaders: ["Content-Type"],
+    allowedHeaders: ["Content-Type", "*"],
   }),
 );
 
@@ -74,9 +77,22 @@ app.delete("/message/:id", async (req, res) => {
   }
 });
 
+// Single upgrade handler
+server.on("upgrade", (request, socket, head) => {
+  try {
+    wss.handleUpgrade(request, socket, head, (ws) => {
+      wss.emit("connection", ws, request);
+    });
+  } catch (err) {
+    console.error("Upgrade error:", err);
+    socket.destroy();
+  }
+});
+
 // WebSocket connection handling
 wss.on("connection", (ws) => {
-  console.log("New client connected");
+  clients.add(ws);
+  console.log(`Client connected. Total clients: ${clients.size}`);
 
   ws.on("message", async (data) => {
     const message = JSON.parse(data);
@@ -91,11 +107,13 @@ wss.on("connection", (ws) => {
         ]);
       }
 
-      // Send updated messages to all clients
+      // Broadcast updated messages to all connected clients
       const result = await pool.query("SELECT * FROM wall ORDER BY id DESC");
-      wss.clients.forEach((client) => {
+      const messageData = JSON.stringify(result.rows);
+
+      clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
-          client.send(JSON.stringify(result.rows));
+          client.send(messageData);
         }
       });
     } catch (err) {
@@ -104,7 +122,13 @@ wss.on("connection", (ws) => {
   });
 
   ws.on("close", () => {
-    console.log("Client disconnected");
+    clients.delete(ws);
+    console.log(`Client disconnected. Total clients: ${clients.size}`);
+  });
+
+  ws.on("error", (error) => {
+    console.error("WebSocket error:", error);
+    clients.delete(ws);
   });
 });
 
