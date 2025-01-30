@@ -1,33 +1,56 @@
-const ws = new WebSocket(`ws://${window.location.host}`);
+// WebSocket connection with protocol detection
+const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+const wsUrl = `${protocol}//${window.location.host}`;
+let ws = null;
+let reconnectAttempts = 0;
+const MAX_RECONNECT_ATTEMPTS = 5;
 
-ws.onopen = () => {
-  console.log("Connected to WebSocket server");
-};
+function connectWebSocket() {
+  ws = new WebSocket(wsUrl);
 
-ws.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  if (Array.isArray(data)) {
-    displayMessages(data);
-  } else if (data.error) {
-    console.error("Server error:", data.error);
-  }
-};
+  ws.onopen = () => {
+    console.log("Connected to WebSocket server");
+    reconnectAttempts = 0;
+    loadMessages();
+  };
 
-ws.onerror = (error) => {
-  console.error("WebSocket error:", error);
-};
+  ws.onclose = () => {
+    console.log("WebSocket connection closed");
+    if (reconnectAttempts < MAX_RECONNECT_ATTEMPTS) {
+      reconnectAttempts++;
+      console.log(`Reconnecting... Attempt ${reconnectAttempts}`);
+      setTimeout(connectWebSocket, 3000);
+    }
+  };
 
-loadMessages();
+  ws.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    if (Array.isArray(data)) {
+      displayMessages(data);
+    } else if (data.error) {
+      console.error("Server error:", data.error);
+    }
+  };
 
-// Handle form submission
+  ws.onerror = (error) => {
+    console.error("WebSocket error:", error);
+  };
+}
+
+// Initialize connection
+connectWebSocket();
+
+// Update form submission to check connection
 document.getElementById("messageForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  const name = document.getElementById("name").value;
-  const message = document.getElementById("message").value;
-
-  ws.send(JSON.stringify({ name, message }));
-
-  document.getElementById("message").value = "";
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+    ws.send(JSON.stringify({ name, message }));
+    document.getElementById("message").value = "";
+  } else {
+    console.error("WebSocket connection not available");
+  }
 });
 
 async function deleteMessage(id) {
