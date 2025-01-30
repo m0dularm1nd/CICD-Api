@@ -7,7 +7,7 @@
   <body class="container mx-auto max-w-4xl px-4 py-8">
     <!-- header -->
     <header
-      class="mb-10 flex items-center space-x-4 border-b border-gray-200 pb-6"
+      class="mb-4 flex items-center space-x-4 border-b border-gray-200 pb-4"
     >
       <img src="images/logo.svg" />
       <h1
@@ -24,46 +24,40 @@
         Welcome!
       </h2>
       <p class="mb-4 text-2xl font-semibold text-gray-600">
-        Share your thoughts, ideas, or greetings Leave a message below in the
-        Guest Book.
+        Live Chat Application, realtime updates and DB integration.
       </p>
     </div>
 
-    <div class="mb-8 rounded-lg bg-white p-6 shadow-lg">
+    <div class="mb-4 rounded-lg bg-white p-4 shadow-lg">
       <h2
-        class="mb-4 border-b border-gray-200 pb-2 text-4xl font-bold text-violet-300"
+        class="mb-3 border-b border-gray-200 pb-2 text-4xl font-bold text-violet-300"
       >
         Add New Message
       </h2>
-      <form id="messageForm" class="space-y-4">
-        <div>
-          <label for="name" class="block text-2xl font-medium text-gray-600"
-            >Name:</label
-          >
+
+      <form id="messageForm">
+        <div class="flex flex-col gap-4">
           <input
             type="text"
             id="name"
             required
-            class="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+            placeholder="Your name"
+            class="w-full rounded-md border border-gray-300 p-3 text-base shadow-sm focus:border-violet-400 focus:ring-violet-400"
           />
-        </div>
-        <div>
-          <label for="message" class="block text-2xl font-medium text-gray-600"
-            >Message:</label
-          >
           <input
             type="text"
             id="message"
             required
-            class="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+            placeholder="Type your message..."
+            class="w-full rounded-md border border-gray-300 p-3 text-base shadow-sm focus:border-violet-400 focus:ring-violet-400"
           />
+          <button
+            type="submit"
+            class="gradient-bg animate-gradient w-full rounded-md px-4 py-3 text-xl font-semibold text-white transition-colors hover:bg-violet-600 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none"
+          >
+            Send
+          </button>
         </div>
-        <button
-          type="submit"
-          class="rounded-md bg-slate-500 px-4 py-2 text-white transition-colors hover:bg-violet-300 focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:outline-none"
-        >
-          Submit
-        </button>
       </form>
     </div>
 

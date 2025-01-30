@@ -30,13 +30,17 @@ document.getElementById("messageForm").addEventListener("submit", function (e) {
   document.getElementById("message").value = "";
 });
 
-function deleteMessage(id) {
-  ws.send(
-    JSON.stringify({
-      type: "delete",
-      id: id,
-    }),
-  );
+async function deleteMessage(id) {
+  try {
+    ws.send(
+      JSON.stringify({
+        type: "delete",
+        id: id,
+      }),
+    );
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 // Function to load messages
