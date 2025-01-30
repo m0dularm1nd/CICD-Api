@@ -3,7 +3,6 @@
   <head>
     <title>The Wall</title>
     <link href="./css/output.css" rel="stylesheet" />
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
   <body class="container mx-auto max-w-4xl px-4 py-8">
     <!-- header -->
@@ -12,15 +11,19 @@
     >
       <img src="images/logo.svg" />
       <h1
-        class="bg-gradient-to-r from-slate-500 via-violet-300 to-pink-300 bg-clip-text text-6xl font-bold text-transparent"
+        class="gradient-text animate-gradient text-8xl font-bold text-transparent"
       >
         The Wall
       </h1>
     </header>
 
     <div class="mb-8 rounded-lg bg-white p-6 shadow-lg">
-      <h3 class="mb-2 text-4xl font-bold text-slate-500">Welcome!</h3>
-      <p class="mb-4 text-xl font-semibold text-gray-600">
+      <h2
+        class="mb-4 border-b border-gray-200 pb-2 text-5xl font-bold text-slate-400"
+      >
+        Welcome!
+      </h2>
+      <p class="mb-4 text-2xl font-semibold text-gray-600">
         Share your thoughts, ideas, or greetings Leave a message below in the
         Guest Book.
       </p>
@@ -28,13 +31,13 @@
 
     <div class="mb-8 rounded-lg bg-white p-6 shadow-lg">
       <h2
-        class="mb-6 border-b border-gray-200 pb-4 text-3xl font-bold text-slate-500"
+        class="mb-4 border-b border-gray-200 pb-2 text-4xl font-bold text-violet-300"
       >
         Add New Message
       </h2>
       <form id="messageForm" class="space-y-4">
         <div>
-          <label for="name" class="block text-xl font-medium text-gray-700"
+          <label for="name" class="block text-2xl font-medium text-gray-600"
             >Name:</label
           >
           <input
@@ -45,7 +48,7 @@
           />
         </div>
         <div>
-          <label for="message" class="block text-xl font-medium text-gray-700"
+          <label for="message" class="block text-2xl font-medium text-gray-600"
             >Message:</label
           >
           <input
@@ -66,7 +69,7 @@
 
     <div class="rounded-lg bg-white p-6 shadow-lg">
       <h2
-        class="mb-6 border-b border-gray-200 pb-4 text-3xl font-bold text-slate-500"
+        class="mb-4 border-b border-gray-200 pb-2 text-4xl font-bold text-pink-300"
       >
         Messages
       </h2>

@@ -1,1 +1,42 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+/* @config "../../../tailwind.config.js"; */
+
+@theme {
+  --animate-gradient: gradient 6s linear infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+}
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #63748d,
+    #c4b4fc,
+    #fba6d5,
+    #c4b4fc,
+    #63748d,
+    #c4b4fc,
+    #fba6d5
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+}
+.gradient-text2 {
+  background: linear-gradient(
+    to right,
+    #a855f7,
+    #ec4899,
+    #eab308,
+    #ec4899,
+    #a855f7,
+    #ec4899,
+    #eab308
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+}

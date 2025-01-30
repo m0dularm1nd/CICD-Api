@@ -1,7 +1,7 @@
 {
-  "name": "api",
+  "name": "wall-api",
   "version": "1.0.0",
-  "description": "for u",
+  "description": "Express and Postgres api",
   "main": "app.js",
   "type": "module",
   "scripts": {
@@ -11,15 +11,14 @@
   "author": "m0dularm1nd",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.0",
-    "@tailwindcss/vite": "^4.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.18.3",
     "pg": "^8.13.1",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.0.1",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11"
   }
