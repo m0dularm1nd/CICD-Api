@@ -81,8 +81,8 @@ function displayMessages(messages) {
       (msg) => `
       <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex justify-between items-center">
         <div>
-          <span class="font-bold text-violet-400">${msg.name}:</span>
-          <span class="text-gray-700">${msg.message}</span>
+          <span class="text-2xl font-bold text-violet-400">${msg.name}:</span>
+          <span class="text-2xl text-gray-700">${msg.message}</span>
         </div>
         <button onclick="deleteMessage(${msg.id})" 
           class="text-sm bg-pink-300 text-white px-2 py-2 rounded-md hover:bg-pink-600 transition-colors">
