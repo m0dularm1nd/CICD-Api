@@ -9,7 +9,7 @@ function connectWebSocket() {
   ws = new WebSocket(wsUrl);
 
   ws.onopen = () => {
-    console.log("Connected to WebSocket server");
+    console.log("Connected to The Wall");
     reconnectAttempts = 0;
     loadMessages();
   };
@@ -46,7 +46,7 @@ document.getElementById("messageForm").addEventListener("submit", function (e) {
   if (ws && ws.readyState === WebSocket.OPEN) {
     const name = document.getElementById("name").value;
     const message = document.getElementById("message").value;
-    ws.send(JSON.stringify({ name, message }));
+    ws.send(JSON.stringify({ name, message, type: "put" }));
     document.getElementById("message").value = "";
   } else {
     console.error("WebSocket connection not available");

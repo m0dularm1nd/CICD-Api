@@ -1,98 +1,71 @@
 <!doctype html>
 <html class="bg-gray-100">
-  <head>
-    <title>The Wall</title>
-    <link rel="icon" type="image/x-icon" href="./images/logo.svg" />
-    <link href="./css/output.css" rel="stylesheet" />
-    <meta meta name="viewport" content="user-scalable=no" />
-  </head>
-  <body class="container mx-auto max-w-4xl px-4 py-8">
-    <!-- header -->
-    <header
-      class="mb-4 flex items-center space-x-4 border-b border-gray-200 pb-4"
-    >
-      <img src="images/logo.svg" />
-      <h1
-        class="gradient-text animate-gradient text-8xl font-bold text-transparent"
-      >
-        The Wall
-      </h1>
-    </header>
 
-    <div class="mb-8 rounded-lg bg-white p-6 shadow-lg">
-      <h2
-        class="mb-4 border-b border-gray-200 pb-2 text-5xl font-bold text-slate-500"
-      >
-        Welcome!
-      </h2>
-      <p class="mb-4 text-2xl font-semibold text-gray-600">
-        Live Chat Application, realtime updates and DB integration.
-      </p>
-    </div>
+<head>
+  <title>The Wall</title>
+  <link rel="icon" type="image/x-icon" href="./images/logo.svg" />
+  <link href="./css/output.css" rel="stylesheet" />
+  <meta meta name="viewport" content="user-scalable=no" />
+</head>
 
-    <div class="mb-4 rounded-lg bg-white p-4 shadow-lg">
-      <h2
-        class="mb-3 border-b border-gray-200 pb-2 text-4xl font-bold text-slate-500"
-      >
-        Add New Message
-      </h2>
+<body class="container mx-auto max-w-4xl px-4 py-8">
+  <!-- header -->
+  <header class="mb-4 flex items-center space-x-4 border-b border-gray-200 pb-4">
+    <img src="images/logo.svg" />
+    <h1 class="gradient-text animate-gradient text-8xl font-bold text-transparent">
+      The Wall
+    </h1>
+  </header>
 
-      <form id="messageForm">
-        <div class="flex flex-col gap-4">
-          <input
-            type="text"
-            id="name"
-            required
-            placeholder="Name"
-            class="w-full rounded-md border border-gray-300 p-3 text-2xl shadow-sm focus:border-violet-400 focus:ring-violet-400"
-          />
-          <input
-            type="text"
-            id="message"
-            required
-            placeholder="Type your message..."
-            class="w-full rounded-md border border-gray-300 p-3 text-2xl shadow-sm focus:border-violet-400 focus:ring-violet-400"
-          />
-          <button
-            type="submit"
-            class="gradient-bg animate-gradient w-full rounded-md px-4 py-3 text-2xl font-bold text-white transition-colors hover:bg-violet-600 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none"
-          >
-            Send
-          </button>
-        </div>
-      </form>
-    </div>
-    <div class="blob-cont fixed inset-0 z-0 min-h-full min-w-full">
-      <div class="yellow blob"></div>
-      <div class="red blob"></div>
-      <div class="green blob"></div>
-    </div>
-    <svg class="fixed inset-0 z-0 mx-auto">
-      <filter id="noiseFilter">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.6"
-          stitchTiles="stitch"
-        />
-        <feColorMatrix
-          in="colorNoise"
-          type="matrix"
-          values="1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0"
-        />
-        <feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
-        <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
-      </filter>
-    </svg>
+  <div class="mb-8 rounded-lg bg-white/70 p-6 shadow-lg backdrop-blur-md">
+    <h2 class="mb-4 border-b border-gray-200 pb-2 text-5xl font-bold text-slate-500">
+      Welcome!
+    </h2>
+    <p class="mb-4 text-2xl font-semibold text-gray-600">
+      Live Chat App.
+    </p>
+  </div>
 
-    <div class="rounded-lg bg-white p-6 shadow-lg">
-      <h2
-        class="mb-4 border-b border-gray-200 pb-2 text-4xl font-bold text-slate-500"
-      >
-        Messages
-      </h2>
-      <div id="messages" class="space-y-4 text-xl"></div>
-    </div>
+  <div class="mb-4 rounded-lg bg-white/70 p-4 shadow-lg backdrop-blur-md">
+    <h2 class="mb-3 border-b border-gray-200 pb-2 text-4xl font-bold text-slate-500">
+      Add New Message
+    </h2>
 
-    <script src="./script.js"></script>
-  </body>
+    <form id="messageForm">
+      <div class="flex flex-col gap-4">
+        <input type="text" id="name" required placeholder="Name"
+          class="w-full rounded-md border border-gray-300 p-3 text-2xl shadow-sm focus:border-violet-400 focus:ring-violet-400" />
+        <input type="text" id="message" required placeholder="Type your message..."
+          class="w-full rounded-md border border-gray-300 p-3 text-2xl shadow-sm focus:border-violet-400 focus:ring-violet-400" />
+        <button type="submit"
+          class="w-full rounded-md bg-slate-400 px-4 py-3 text-2xl font-bold text-white transition-colors hover:bg-violet-300 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none">
+          Send
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="blob-cont fixed inset-0 z-0 min-h-full min-w-full">
+    <div class="yellow blob"></div>
+    <div class="red blob"></div>
+    <div class="green blob"></div>
+  </div>
+  <svg class="fixed inset-0 z-0 mx-auto">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" stitchTiles="stitch" />
+      <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+      <feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+      <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+    </filter>
+  </svg>
+
+  <div class="rounded-lg bg-white/70 p-6 shadow-lg backdrop-blur-md">
+    <h2 class="mb-4 border-b border-gray-200 pb-2 text-4xl font-bold text-slate-500">
+      Messages
+    </h2>
+    <div id="messages" class="space-y-4 text-xl"></div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
 </html>

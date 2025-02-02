@@ -84,8 +84,8 @@ wss.on("connection", (ws) => {
             client.send(JSON.stringify(result.rows));
           }
         });
-        logger("INFO", "DELETE", `Deleted message ID: ${message.id}`);
-      } else {
+        logger("INFO", "DELETE", `Deleted message [ID]:[${message.id}]`);
+      } else if (message.type === "put") {
         await pool.query("INSERT INTO wall (name, message) VALUES ($1, $2)", [
           message.name,
           message.message,
@@ -99,7 +99,7 @@ wss.on("connection", (ws) => {
         logger(
           "INFO",
           "INSERT",
-          `New message from ${message.name}: ${message.message}`,
+          `New message [${message.name}]:[${message.message}]`,
         );
       }
     } catch (err) {
