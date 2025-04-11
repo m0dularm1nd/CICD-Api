@@ -19,7 +19,6 @@ app.get('/', (_req, res) => {
     server: 'Express.js Backend server',
     request: 'json response',
     email: 'check@V3il.com',
-    password: 'notpassword',
     color: "sky",
     shape: "cube",
     image: "🔮"
