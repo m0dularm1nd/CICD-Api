@@ -40,7 +40,7 @@ app.get("/setup", async (req, res) => {
       "CREATE TABLE wall( id SERIAL PRIMARY KEY, name VARCHAR(100), message VARCHAR(100))",
     );
     res.status(200).send({ message: "Successfully created table" });
-  } catch (err) {}
+  } catch (err) { }
 });
 
 // Single upgrade handler
@@ -123,7 +123,6 @@ wss.on("connection", (ws) => {
   });
 });
 
-// Update server creation
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
