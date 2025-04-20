@@ -20,7 +20,7 @@ app.get('/', (_req, res) => {
     request: 'json response',
     email: 'check@V3il.com',
     color: "sky",
-    shape: "sphere",
+    shape: "Tesseract",
     image: "🔮"
   });
 });
