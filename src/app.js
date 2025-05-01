@@ -17,11 +17,10 @@ app.get('/', (_req, res) => {
   res.status(200).json({
     message: 'Private Image, Multi CD, VSO',
     server: 'Express.js Backend server',
-    request: 'json response',
     email: 'check@V3il.com',
     color: "sky",
     shape: "Tesseract",
-    image: "🔮"
+    image: "🟥🟧🟨🟩🟦🟪🟫⬛⬜"
   });
 });
 
