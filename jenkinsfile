@@ -5,7 +5,7 @@ node {
     }
 
     stage('Build image') {
-       app = docker.build("nx2.v3il.xyz/m0dularm1nd/wall-api")
+       app = docker.build("host.repo.atman.ovh/m0dularm1nd/wall-api")
     }
 
     stage('Test image') {
@@ -15,7 +15,7 @@ node {
     }
 
     stage('Push image') {
-        docker.withRegistry('https://nx2.v3il.xyz', 'nxshub') {
+        docker.withRegistry('https://host.repo.atman.ovh', 'reg-crd') {
             app.push("${env.BUILD_NUMBER}")
         }
     }
